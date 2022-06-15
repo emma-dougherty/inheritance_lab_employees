@@ -13,8 +13,8 @@ public class DirectorTest {
     
     @Before
     public void before() {
-        director = new Director("Michael Scott", "US765", 50000, "Sales", 2500.50);
-        developer = new Developer ("Maurice Moss", "CB123", 30000);
+        director = new Director("Michael Scott", "US765", 100000, "Sales", 2500.50);
+        developer = new Developer ("Maurice Moss", "CB123", 40000);
     
     }
     
@@ -30,7 +30,7 @@ public class DirectorTest {
     
     @Test
     public void hasSalary() {
-        assertEquals(50000, director.getSalary(), 0.00);
+        assertEquals(100000, director.getSalary(), 0.00);
     }
     
     @Test
@@ -45,23 +45,28 @@ public class DirectorTest {
     
     @Test
     public void canGetPayBonus() {
-        assertEquals(500.00, director.payBonus(),0.00);
+        assertEquals(2000.00, director.payBonus(),0.00);
     }
     @Test
     public void canRaiseSalary() {
-        director.raiseSalary(500.00);
-        assertEquals(50500.00, director.getSalary(), 0.00);
+        director.raiseSalary(1000.00);
+        assertEquals(101000.00, director.getSalary(), 0.00);
     }
     
     @Test
     public void cannotRaiseSalaryIfNegativeValue() {
-        director.raiseSalary(-55000);
-        assertEquals(50000, director.getSalary(), 0.00);
+        director.raiseSalary(-150000);
+        assertEquals(100000, director.getSalary(), 0.00);
     }
     
     @Test
     public void canChangeEmployeeName() {
         developer.setName("Moss");
         assertEquals("Moss", developer.getName());
+    }
+    
+    @Test
+    public void canChangeBonus(){
+        assertEquals(2000, director.payBonus(),0.00);
     }
 }

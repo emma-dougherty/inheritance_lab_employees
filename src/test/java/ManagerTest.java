@@ -25,7 +25,7 @@ public class ManagerTest {
     
     @Test
     public void hasSalary() {
-        assertEquals(50000, manager.getSalary());
+        assertEquals(50000, manager.getSalary(), 0.00);
     }
     
     @Test
